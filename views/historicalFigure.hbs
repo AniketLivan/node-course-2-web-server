@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+    <script>
+        $(document).ready(function(){
+	    $('a[href="#"]').click(function(){
+		$('html,body').animate({
+        scrollTop: $("#second_page").offset().top},
+        'slow');
+	    });     
+    });
+    </script>
+    <head>
+        <meta charset="utf-8">
+        <title>{{pageTitle}}</title>
+    </head>
+    <style>
+        html, body {
+	background-color: #000;
+    height:100%; /* IE6: treaded as min-height*/
+    margin: 0;
+    padding: 0;
+    min-width: 400px;
+    color: white;
+    }
+    #all {
+    margin: 0px;
+    padding: 0px;
+    height:100%;
+    }
+    .page {
+    width: 100%;
+    height:100%;
+    }
+
+
+
+/*page 1*/
+
+    #top_page{
+	vertical-align: middle;
+	justify-content: center;
+	text-align: center;
+	
+
+    }
+
+    #header, #footer{
+	height: 10%;
+	display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+    }
+
+    #center{
+	height: 80%;
+	background-image: url("https://img00.deviantart.net/fcd0/i/2016/042/f/6/mahatma_gandhi_by_astayoga-d9rccwu.png");
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+
+    }
+
+    #name{
+	font-family: 'Lato' , sans-serif;
+	font-weight: 700;
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 48px;
+    letter-spacing: 8px;
+    } 
+
+    #basic_text{
+	font-family: 'Lato' , sans-serif;
+	font-weight: 700;
+	font-size: 14px;
+   
+    }   
+    #topic_header{
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	text-align: center;
+	letter-spacing: 5px;
+
+    }
+/*arrow down with animation*/
+
+@-webkit-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@-moz-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+ .scroll-btn {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.scroll-btn > * {
+	display: inline-block;
+	line-height: 18px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #7f8c8d;
+	color: #ffffff;
+	font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 2px;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *.active {
+	color: #ffffff;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *:active,
+.scroll-btn > *.active {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.scroll-btn .mouse {
+	position: relative;
+	display: block;
+	width: 35px;
+	height: 55px;
+	margin: 0 auto 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 3px solid white;
+	border-radius: 23px;
+}
+.scroll-btn .mouse > * {
+	position: absolute;
+	display: block;
+	top: 29%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	margin: -4px 0 0 -4px;
+	background: white;
+	border-radius: 50%;
+	-webkit-animation: ani-mouse 2.5s linear infinite;
+	-moz-animation: ani-mouse 2.5s linear infinite;
+	animation: ani-mouse 2.5s linear infinite;
+
+    </style>
+
+    <body>
+        
+        <div id="all">
+			<div class="page" id="top_page">
+				<div id="header">
+					<p id="basic_text">{{> header}}</p>	
+				</div>
+				<div id="center">
+					<h1 id="name">MAHATAMA GANDHI</h1>
+				</div>
+				<div id="footer">
+					<span class="scroll-btn">
+						<a><span class="mouse"><span></span></span></a>
+					</span>
+				</div>
+			</div>
+			<div class="page" >
+				<div>
+					<div id="top_page">
+						<h2 id="topic_header">EARLY LIFE</h2>
+						<p>
+							
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="page" id="second_page">
+                {{> footer}}
+            </div>
+			<div class="page"></div>
+			<div class="page"></div>
+		</div>
+
+        
+    </body>
+</html>

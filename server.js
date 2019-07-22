@@ -61,7 +61,11 @@ app.get('/projects', (req, res) => {
         pageTitle: 'Projects'
     });
 });
-
+app.get('/historicalFigure', (req, res) => {
+    res.render('historicalFigure.hbs', {
+        pageTitle: 'M.K. Gandhi'
+    })
+});
 app.get('/bad', (req,res) => {
 
     res.send({
